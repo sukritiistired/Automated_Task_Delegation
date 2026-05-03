@@ -1,0 +1,202 @@
+[
+  {
+    "userId": 1,
+    "cognitoId": "kaggle-d6c84896c412",
+    "username": "graphic_designer_1",
+    "profilePictureUrl": "i2.jpg",
+    "teamId": 1,
+    "role": "designer",
+    "skills": "photoshop,illustrator,figma,typography,branding",
+    "availabilityHours": 20
+  },
+  {
+    "userId": 2,
+    "cognitoId": "kaggle-5ef836b9ccc9",
+    "username": "ux_designer_2",
+    "profilePictureUrl": "i3.jpg",
+    "teamId": 2,
+    "role": "designer",
+    "skills": "figma,prototyping,user research,sketch,wireframing",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 3,
+    "cognitoId": "kaggle-a147da59e119",
+    "username": "product_manager_3",
+    "profilePictureUrl": "i4.jpg",
+    "teamId": 3,
+    "role": "product",
+    "skills": "agile,strategy,roadmapping,jira,stakeholder management",
+    "availabilityHours": 38
+  },
+  {
+    "userId": 4,
+    "cognitoId": "kaggle-78f132269093",
+    "username": "plumber_4",
+    "profilePictureUrl": "i5.jpg",
+    "teamId": 4,
+    "role": "contractor",
+    "skills": "pipefitting,installation,repair,plumbing codes",
+    "availabilityHours": 26
+  },
+  {
+    "userId": 5,
+    "cognitoId": "kaggle-cbb67c65f2ab",
+    "username": "doctor_5",
+    "profilePictureUrl": "i6.jpg",
+    "teamId": 5,
+    "role": "member",
+    "skills": "diagnosis,patient care,medical records,clinical procedures",
+    "availabilityHours": 35
+  },
+  {
+    "userId": 6,
+    "cognitoId": "kaggle-6c7ad99e57f6",
+    "username": "civil_engineer_6",
+    "profilePictureUrl": "i7.jpg",
+    "teamId": 1,
+    "role": "developer",
+    "skills": "autocad,structural analysis,project management,bim",
+    "availabilityHours": 20
+  },
+  {
+    "userId": 7,
+    "cognitoId": "kaggle-7516132c51e7",
+    "username": "accountant_7",
+    "profilePictureUrl": "i1.jpg",
+    "teamId": 2,
+    "role": "member",
+    "skills": "excel,quickbooks,financial reporting,tax,audit",
+    "availabilityHours": 32
+  },
+  {
+    "userId": 8,
+    "cognitoId": "kaggle-45db51f999b9",
+    "username": "customer_support_8",
+    "profilePictureUrl": "i2.jpg",
+    "teamId": 3,
+    "role": "member",
+    "skills": "communication,crm,problem solving,customer service",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 9,
+    "cognitoId": "kaggle-4b7281a983a4",
+    "username": "software_engineer_9",
+    "profilePictureUrl": "i3.jpg",
+    "teamId": 4,
+    "role": "developer",
+    "skills": "python,javascript,react,nodejs,aws,docker",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 10,
+    "cognitoId": "kaggle-8ab7bbdf01a2",
+    "username": "teacher_10",
+    "profilePictureUrl": "i4.jpg",
+    "teamId": 5,
+    "role": "member",
+    "skills": "curriculum design,lesson planning,assessment,communication",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 11,
+    "cognitoId": "kaggle-8fe305b70f73",
+    "username": "sales_manager_11",
+    "profilePictureUrl": "i5.jpg",
+    "teamId": 1,
+    "role": "member",
+    "skills": "crm,negotiation,salesforce,pipeline management",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 12,
+    "cognitoId": "kaggle-eb3d789747d5",
+    "username": "data_analyst_12",
+    "profilePictureUrl": "i6.jpg",
+    "teamId": 2,
+    "role": "developer",
+    "skills": "python,sql,tableau,excel,machine learning,statistics",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 13,
+    "cognitoId": "kaggle-47464a2431a9",
+    "username": "consultant_13",
+    "profilePictureUrl": "i7.jpg",
+    "teamId": 3,
+    "role": "member",
+    "skills": "strategy,analysis,presentation,project management",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 14,
+    "cognitoId": "kaggle-bc9655249274",
+    "username": "electrician_14",
+    "profilePictureUrl": "i1.jpg",
+    "teamId": 4,
+    "role": "contractor",
+    "skills": "wiring,electrical codes,installation,troubleshooting",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 15,
+    "cognitoId": "kaggle-578b7eac4dfb",
+    "username": "lawyer_15",
+    "profilePictureUrl": "i2.jpg",
+    "teamId": 5,
+    "role": "member",
+    "skills": "legal research,contract drafting,compliance,litigation",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 16,
+    "cognitoId": "kaggle-681924857e33",
+    "username": "hr_specialist_16",
+    "profilePictureUrl": "i3.jpg",
+    "teamId": 1,
+    "role": "admin",
+    "skills": "recruitment,payroll,compliance,onboarding,training",
+    "availabilityHours": 23
+  },
+  {
+    "userId": 17,
+    "cognitoId": "kaggle-51202d248e4f",
+    "username": "nurse_17",
+    "profilePictureUrl": "i4.jpg",
+    "teamId": 2,
+    "role": "member",
+    "skills": "patient care,medication,clinical documentation,vital signs",
+    "availabilityHours": 26
+  },
+  {
+    "userId": 18,
+    "cognitoId": "kaggle-64eb669723ca",
+    "username": "mechanic_18",
+    "profilePictureUrl": "i5.jpg",
+    "teamId": 3,
+    "role": "contractor",
+    "skills": "diagnostics,engine repair,maintenance,tools",
+    "availabilityHours": 40
+  },
+  {
+    "userId": 19,
+    "cognitoId": "kaggle-cf81121543f0",
+    "username": "business_analyst_19",
+    "profilePictureUrl": "i6.jpg",
+    "teamId": 4,
+    "role": "product",
+    "skills": "sql,excel,requirements,process mapping,jira",
+    "availabilityHours": 20
+  },
+  {
+    "userId": 20,
+    "cognitoId": "kaggle-30476e9fc3cb",
+    "username": "marketing_specialist_20",
+    "profilePictureUrl": "i7.jpg",
+    "teamId": 5,
+    "role": "member",
+    "skills": "seo,content marketing,google analytics,social media",
+    "availabilityHours": 20
+  }
+]

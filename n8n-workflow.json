@@ -1,0 +1,14 @@
+{
+  "name": "Task Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "task-assigned",
+        "httpMethod": "POST"
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1
+    }
+  ]
+}

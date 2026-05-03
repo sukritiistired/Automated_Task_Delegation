@@ -1,0 +1,14 @@
+[
+  {
+    "fileURL": "architecture_v3_draft.pdf",
+    "fileName": "Architecture Draft",
+    "taskId": 1,
+    "uploadedById": 1
+  },
+  {
+    "fileURL": "design_mockup.fig",
+    "fileName": "Design Mockup",
+    "taskId": 2,
+    "uploadedById": 2
+  }
+]

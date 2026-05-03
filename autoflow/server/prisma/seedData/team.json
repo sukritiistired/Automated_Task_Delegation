@@ -1,0 +1,27 @@
+[
+  {
+    "teamName": "Engineering",
+    "productOwnerUserId": null,
+    "projectManagerUserId": null
+  },
+  {
+    "teamName": "Design",
+    "productOwnerUserId": null,
+    "projectManagerUserId": null
+  },
+  {
+    "teamName": "Product",
+    "productOwnerUserId": null,
+    "projectManagerUserId": null
+  },
+  {
+    "teamName": "Marketing",
+    "productOwnerUserId": null,
+    "projectManagerUserId": null
+  },
+  {
+    "teamName": "Operations",
+    "productOwnerUserId": null,
+    "projectManagerUserId": null
+  }
+]

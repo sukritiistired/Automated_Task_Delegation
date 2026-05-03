@@ -1,0 +1,28 @@
+# Environment variables (Crucial for security)
+.env
+.env.local
+
+# Dependencies
+node_modules/
+autoflow/node_modules/
+autoflow/server/node_modules/
+
+# Prisma
+/autoflow/server/prisma/dev.db
+/autoflow/server/prisma/dev.db-journal
+
+# Build outputs and logs
+dist/
+build/
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
