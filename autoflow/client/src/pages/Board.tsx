@@ -3,6 +3,7 @@ import { api } from '../utils/api';
 
 const PRIORITIES = ['Urgent', 'High', 'Medium', 'Low', 'Backlog'];
 const STATUSES   = ['To Do', 'Work In Progress', 'Under Review', 'Completed'];
+const PRESET_TAGS = ['frontend', 'backend', 'design', 'bug', 'feature', 'enhancement', 'documentation', 'testing', 'devops', 'urgent'];
 
 const P_COLOR: Record<string,string> = {
   Urgent:'#ef4444', High:'#f97316', Medium:'#eab308', Low:'#22c55e', Backlog:'#6b7280'
@@ -33,6 +34,8 @@ export default function Board() {
   const [delegating, setDelegating] = useState<number|null>(null);
   const [delegResult,setDelegResult]= useState<any>(null);
   const [error,      setError]      = useState('');
+  const [tagSearch,  setTagSearch]  = useState('');
+  const [showTagDropdown, setShowTagDropdown] = useState(false);
 
   const load = async () => {
     setLoading(true);
@@ -169,6 +172,22 @@ export default function Board() {
       || (t.tags || '').toLowerCase().includes(search.toLowerCase());
     return mP && mS && mQ;
   });
+
+  const allTags = Array.from(new Set([
+    ...PRESET_TAGS,
+    ...tasks.flatMap(t => (t.tags || '').split(',').map((tag: string) => tag.trim()).filter(Boolean))
+  ])).sort();
+
+  const filteredTags = allTags.filter(t => t.toLowerCase().includes(tagSearch.toLowerCase()));
+
+  const toggleTag = (tag: string) => {
+    const currentTags = form.tags ? form.tags.split(',').map((t: string) => t.trim()).filter(Boolean) : [];
+    if (currentTags.includes(tag)) {
+      setForm({ ...form, tags: currentTags.filter((t: string) => t !== tag).join(', ') });
+    } else {
+      setForm({ ...form, tags: [...currentTags, tag].join(', ') });
+    }
+  };
 
   if (loading) return <div className="loading"><div className="spinner"/><span>Loading board…</span></div>;
 
@@ -398,13 +417,69 @@ export default function Board() {
                     {projects.map(p => <option key={p.id} value={String(p.id)}>{p.name}</option>)}
                   </select>
                 </div>
-                <div className="form-group">
+                <div className="form-group" style={{ position: 'relative' }}>
                   <label className="form-label">Tags</label>
-                  <input
-                    value={form.tags}
-                    onChange={e => setForm({ ...form, tags: e.target.value })}
-                    placeholder="design, frontend, bug…"
-                  />
+                  <div 
+                    className="form-control" 
+                    style={{ minHeight: '38px', cursor: 'pointer', display: 'flex', flexWrap: 'wrap', gap: '4px', padding: '8px 12px', border: '1px solid var(--border-light)', borderRadius: '8px', background: 'var(--bg-secondary)', alignItems: 'center' }}
+                    onClick={() => setShowTagDropdown(true)}
+                  >
+                    {form.tags && form.tags.trim() !== '' ? form.tags.split(',').map((tag: string) => tag.trim()).filter(Boolean).map((tag: string) => (
+                      <span key={tag} className="skill-tag" style={{ fontSize: 11, display: 'flex', alignItems: 'center', gap: '4px', margin: 0 }}>
+                        {tag}
+                        <span onClick={(e) => { e.stopPropagation(); toggleTag(tag); }} style={{ cursor: 'pointer', padding: '0 2px', opacity: 0.6 }}>✕</span>
+                      </span>
+                    )) : <span style={{ color: 'var(--text-muted)' }}>Select tags...</span>}
+                  </div>
+
+                  {showTagDropdown && (
+                    <>
+                      <div 
+                        style={{ position: 'fixed', inset: 0, zIndex: 999 }} 
+                        onClick={(e) => { e.stopPropagation(); setShowTagDropdown(false); }}
+                      />
+                      <div style={{
+                        position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 1000,
+                        background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px',
+                        boxShadow: 'var(--shadow)', maxHeight: '220px',
+                        display: 'flex', flexDirection: 'column'
+                      }}>
+                        <div style={{ padding: '8px', borderBottom: '1px solid var(--border)' }}>
+                          <input
+                            autoFocus
+                            value={tagSearch}
+                            onChange={e => setTagSearch(e.target.value)}
+                            placeholder="Search tags..."
+                            style={{ width: '100%', padding: '6px 10px', background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: '6px', fontSize: '13px' }}
+                          />
+                        </div>
+                        <div style={{ overflowY: 'auto', padding: '4px 0' }}>
+                          {filteredTags.map(tag => {
+                            const isSelected = form.tags && form.tags.split(',').map((t:string)=>t.trim()).includes(tag);
+                            return (
+                              <div
+                                key={tag}
+                                onClick={() => toggleTag(tag)}
+                                style={{
+                                  padding: '8px 12px', cursor: 'pointer', fontSize: '13.5px',
+                                  background: isSelected ? 'var(--bg-hover)' : 'transparent',
+                                  display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-hover)'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = isSelected ? 'var(--bg-hover)' : 'transparent'}
+                              >
+                                <span>{tag}</span>
+                                {isSelected && <span style={{ color: 'var(--accent)' }}>✓</span>}
+                              </div>
+                            );
+                          })}
+                          {filteredTags.length === 0 && (
+                            <div style={{ padding: '12px', fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center' }}>No tags found</div>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
