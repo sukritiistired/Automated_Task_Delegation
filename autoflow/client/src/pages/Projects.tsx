@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../utils/api';
 
-const emptyProject = { name: '', description: '', startDate: '', endDate: '' };
+const emptyProject = { name: '', description: '', ownerName: '', documents: '', startDate: '', endDate: '' };
 
 export default function Projects() {
   const [projects, setProjects] = useState<any[]>([]);
@@ -31,6 +31,8 @@ export default function Projects() {
     setForm({
       name: p.name || '',
       description: p.description || '',
+      ownerName: p.ownerName || '',
+      documents: p.documents || '',
       startDate: p.startDate ? p.startDate.split('T')[0] : '',
       endDate: p.endDate ? p.endDate.split('T')[0] : '',
     });
@@ -96,6 +98,8 @@ export default function Projects() {
                 <tr>
                   <th>Project Name</th>
                   <th>Description</th>
+                  <th>Owner</th>
+                  <th>Documents</th>
                   <th>Start Date</th>
                   <th>End Date</th>
                   <th>Actions</th>
@@ -106,6 +110,14 @@ export default function Projects() {
                   <tr key={p.id}>
                     <td style={{ fontWeight: 600 }}>{p.name}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{p.description || '—'}</td>
+                    <td style={{ color: 'var(--text-secondary)' }}>{p.ownerName || '—'}</td>
+                    <td style={{ color: 'var(--text-secondary)' }}>
+                      {p.documents ? (
+                        <a href={p.documents} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
+                          View Doc
+                        </a>
+                      ) : '—'}
+                    </td>
                     <td style={{ color: 'var(--text-secondary)' }}>{p.startDate ? new Date(p.startDate).toLocaleDateString() : '—'}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{p.endDate ? new Date(p.endDate).toLocaleDateString() : '—'}</td>
                     <td>
@@ -147,6 +159,16 @@ export default function Projects() {
               <div className="form-group">
                 <label className="form-label">Description</label>
                 <textarea rows={3} value={form.description} onChange={e=>setForm({...form,description:e.target.value})} placeholder="Brief description of the project..."/>
+              </div>
+              <div className="form-grid form-grid-2">
+                <div className="form-group">
+                  <label className="form-label">Owner Name</label>
+                  <input value={form.ownerName} onChange={e=>setForm({...form,ownerName:e.target.value})} placeholder="e.g. Jane Doe"/>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Documents (URL)</label>
+                  <input value={form.documents} onChange={e=>setForm({...form,documents:e.target.value})} placeholder="https://docs.google.com/..."/>
+                </div>
               </div>
               <div className="form-grid form-grid-2">
                 <div className="form-group">

@@ -33,12 +33,14 @@ export const getProject = async (req: Request, res: Response): Promise<void> => 
 
 // ─── POST /projects ───────────────────────────────────────────────────────────
 export const createProject = async (req: Request, res: Response): Promise<void> => {
-  const { name, description, startDate, endDate } = req.body;
+  const { name, description, ownerName, documents, startDate, endDate } = req.body;
   try {
     const newProject = await prisma.project.create({
       data: {
         name,
         description,
+        ownerName,
+        documents,
         startDate: startDate ? new Date(startDate) : undefined,
         endDate:   endDate   ? new Date(endDate)   : undefined,
       },
@@ -52,13 +54,15 @@ export const createProject = async (req: Request, res: Response): Promise<void> 
 // ─── PUT /projects/:id ────────────────────────────────────────────────────────
 export const updateProject = async (req: Request, res: Response): Promise<void> => {
   const { id }                              = req.params;
-  const { name, description, startDate, endDate } = req.body;
+  const { name, description, ownerName, documents, startDate, endDate } = req.body;
   try {
     const updated = await prisma.project.update({
       where: { id: Number(id) },
       data: {
         name,
         description,
+        ownerName,
+        documents,
         startDate: startDate ? new Date(startDate) : undefined,
         endDate:   endDate   ? new Date(endDate)   : undefined,
       },
