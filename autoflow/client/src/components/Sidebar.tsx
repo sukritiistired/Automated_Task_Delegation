@@ -74,10 +74,34 @@ export default function Sidebar() {
               <div className="user-name">{user.username}</div>
               <div className="user-role">{user.role || 'member'}</div>
             </div>
+            <button 
+              className="btn btn-ghost btn-sm" 
+              onClick={() => {
+                sessionStorage.removeItem('isAuthenticated');
+                window.location.reload();
+              }}
+              title="Logout"
+              style={{ padding: '4px', minWidth: 'auto' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </button>
           </>
         )}
         {!user && (
-          <div style={{ color: 'var(--text-muted)', fontSize: 12 }}>AutoFlow</div>
+          <>
+            <div style={{ color: 'var(--text-muted)', fontSize: 12, flex: 1 }}>AutoFlow</div>
+            <button 
+              className="btn btn-ghost btn-sm" 
+              onClick={() => {
+                sessionStorage.removeItem('isAuthenticated');
+                window.location.reload();
+              }}
+              title="Logout"
+              style={{ padding: '4px', minWidth: 'auto' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </button>
+          </>
         )}
       </div>
     </aside>
